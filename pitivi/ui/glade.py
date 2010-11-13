@@ -180,7 +180,7 @@ class GladeWindow(object):
         self.show = self.window.show
         self.hide = self.window.hide
         self.present = self.window.present
-        self.run = self.window.run
+        self.run = getattr(self.window, 'run', None)
 
     def destroy(self):
         self.window.destroy()
