@@ -64,7 +64,6 @@ class PublishToYouTubeDialog(GladeWindow, Renderer):
         os.mkfifo(self.fifoname)
 
         # TODO: This is probably not the best way to build an URL
-        #self.outfile = 'file:/home/mag/test.webm' #'file:' + self.fifoname
         outfile = 'file://' + self.fifoname
 
         Renderer.__init__(self, project, pipeline, outfile = outfile)
@@ -173,7 +172,7 @@ class PublishToYouTubeDialog(GladeWindow, Renderer):
     def updatePosition(self, fraction, text):
         self.progressbar.set_fraction(fraction)
         if text is not None:
-            self.progressbar.set_text(_("About %s left") % text)
+            self.progressbar.set_text("About %s left" % text)
 
     def _uploadDoneCb(self, result):
         if result[0] == "good":
